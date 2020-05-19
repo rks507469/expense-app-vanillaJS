@@ -1,2 +1,2 @@
 # Expense tracker
-### Using Vanill JS
+### Using Vanilla JS
