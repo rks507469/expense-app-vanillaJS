@@ -6,14 +6,13 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Feature-Policy = "camera 'none'; geolocation 'none'; microphone 'none'"
-    Strict-Transport-Security = "max-age=86400; includeSubDomains"
+    Strict-Transport-Security = "max-age=86400;"
     Accept-CH = "Downlink,RTT,Device-Memory,Save-Data,DPR,Width"
     X-XSS-Protection = "1; mode=block"
     Content-Security-Policy = '''
     default-src 'self';
-    script-src 'self';
-    img-src 'self';
+    script-src 'self' use.fontawesome.com;
     connect-src 'self';
-    style-src 'self';
+    style-src 'self' stackpath.bootstrapcdn.com;
     child-src 'self';
     worker-src 'self';'''
