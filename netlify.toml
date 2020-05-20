@@ -1,7 +1,19 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
+    cache-control = "public,max-age=60"
     Referrer-Policy = "no-referrer"
+    X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
+    Feature-Policy = "camera 'none'; geolocation 'none'; microphone 'none'"
+    Strict-Transport-Security = "max-age=86400; includeSubDomains"
+    Accept-CH = "Downlink,RTT,Device-Memory,Save-Data,DPR,Width"
+    X-XSS-Protection = "1; mode=block"
+    Content-Security-Policy = '''
+    default-src 'self';
+    script-src 'self';
+    img-src 'self';
+    connect-src 'self';
+    style-src 'self';
+    child-src 'self';
+    worker-src 'self';'''
