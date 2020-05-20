@@ -6,7 +6,7 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Feature-Policy = "camera 'none'; geolocation 'none'; microphone 'none'"
-    Strict-Transport-Security = "max-age=86400;"
+    Strict-Transport-Security = "max-age=2592000;"
     Accept-CH = "Downlink,RTT,Device-Memory,Save-Data,DPR,Width"
     X-XSS-Protection = "1; mode=block"
     Content-Security-Policy = '''
