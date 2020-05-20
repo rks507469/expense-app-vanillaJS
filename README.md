@@ -1,2 +1,4 @@
 # Expense tracker
-### Using Vanilla JS
+This project helps you to manage your daily expenses.
+
+

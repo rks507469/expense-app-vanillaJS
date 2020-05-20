@@ -20,8 +20,8 @@
     </nav>
     <div class="container-fluid bg-light" style="min-height: 100vh">
         <div class="container">
-            <div class="jumbotron mt-4">
-                <div class="input-group mb-3">
+            <div class="jumbotron mt-3">
+                <div class="input-group mb-5">
                     <input
                         type="text"
                         class="form-control"
@@ -29,9 +29,13 @@
                         placeholder="Amount spent"
                         aria-label="Amount spent"
                         aria-describedby="spent in rupee"
+                        required="required"
                     />
                     <div class="input-group-append">
                         <span class="input-group-text" id="spent in rupee">₹</span>
+                    </div>
+                    <div class="invalid-tooltip">
+                        Please check the input
                     </div>
                 </div>
                 <div class="input-group mb-3">
@@ -45,9 +49,13 @@
                         placeholder="spent On"
                         aria-label="spent On"
                         aria-describedby="spent at"
+                        required="required"
                     />
                     <div class="input-group-append">
                         <button class="btn btn-outline-primary" type="button" id="btnAddExpense">Add</button>
+                    </div>
+                    <div class="invalid-tooltip">
+                        Please check the input
                     </div>
                 </div>
             </div>
@@ -83,34 +91,46 @@
             const textAmount = inputElement.value;
             //read the description from elem
             const textDesc = inputDescElement.value;
-
-            //console.log({textAmount, textDesc});
             
-            //convert it to number
-            let amount = parseFloat(textAmount);
+            //if textamount and the discription is not empty
+            if(textAmount != "" && textDesc != "") {
+                //removing the labels if present
+                inputElement.classList.remove('is-invalid');
+                inputDescElement.classList.remove('is-invalid');
+                
+                //convert it to number
+                let amount = parseFloat(textAmount);
 
-            //add that value to totalExpense
-            totalExpense = totalExpense + amount;
+                //checking if the amount is in number
+                if(!isNaN(amount)) {
+                 //add that value to totalExpense
+                totalExpense = totalExpense + amount;
 
+                //put it into object
+                expenseItem.desc = textDesc;
+                expenseItem.amount = amount;
+                expenseItem.moment = new Date();
 
+                //put in the array
+                allExpenses.push(expenseItem);
 
-            //put it into object
-            expenseItem.desc = textDesc;
-            expenseItem.amount = amount;
-            expenseItem.moment = new Date();
+                //set the heading element
+                updateTotal();
 
-            //put in the array
-            allExpenses.push(expenseItem);
-            // console.clear();
-            // console.table(allExpenses);
+                renderListView(allExpenses);
+                inputElement.value = "";
+                inputDescElement.value = "";   
+                
+                } else {
+                    inputElement.classList.add('is-invalid');
+                }
 
-            //set the heading element
-            updateTotal();
-
-            renderListView(allExpenses);
-            inputElement.value = "";
-            inputDescElement.value = "";
+            } else {
+                inputElement.classList.add('is-invalid');
+                inputDescElement.classList.add('is-invalid');
+            }
         }
+
         //get the button element
         const element = document.querySelector("#btnAddExpense");
 
