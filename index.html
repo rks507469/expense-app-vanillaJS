@@ -163,7 +163,6 @@
 
         function deleteItem(dateValue, amount) {
             let newArr = [];
-            console.log("Delete Item was called : ", dateValue);
             for(let i=0; i < allExpenses.length; i++) {
                 if(allExpenses[i].moment.valueOf() !== dateValue) {
                     newArr.push(allExpenses[i]);
