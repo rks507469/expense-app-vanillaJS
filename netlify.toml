@@ -16,4 +16,5 @@
     connect-src 'self';
     style-src 'self' 'unsafe-inline' stackpath.bootstrapcdn.com;
     child-src 'self';
-    worker-src 'self';'''
+    worker-src 'self';
+    object-src 'none';'''
